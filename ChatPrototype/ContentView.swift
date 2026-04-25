@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+	@State private var showMessage = false  // tracks whether to show the text
+    
+	var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("This is a custom text")
+			
+			Button("Tap me") {
+				showMessage = true            // closure runs on tap
+			}
+			
+			if showMessage {
+				Text("Hello! Button was tapped.")
+					.foregroundStyle(.green)
+			}
         }
         .padding()
     }
